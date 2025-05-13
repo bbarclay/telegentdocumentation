@@ -1,0 +1,84 @@
+# Telegent mPaaS Core APIs
+
+Telegent's mPaaS restful API includes the following core endpoints:
+
+## Key API Categories
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+  <div className="rounded-lg border border-accent/20 p-4 hover:border-accent/40 transition-colors">
+    <h3 className="text-lg font-semibold mb-2 text-primary">Authentication</h3>
+    <p className="text-sm text-slate-600 dark:text-slate-400">Secure access to Telegent APIs through token-based authentication.</p>
+    <div className="mt-4">
+      <a href="/api-reference/authentication" className="text-sm font-medium text-primary hover:underline">View Authentication APIs →</a>
+    </div>
+  </div>
+  
+  <div className="rounded-lg border border-accent/20 p-4 hover:border-accent/40 transition-colors">
+    <h3 className="text-lg font-semibold mb-2 text-primary">Intelligent Mobile Numbers</h3>
+    <p className="text-sm text-slate-600 dark:text-slate-400">Provision, port, manage, and cancel mobile numbers for SMS, Voice, and Data services.</p>
+    <div className="mt-4">
+      <a href="/api-reference/intelligent-mobile-numbers" className="text-sm font-medium text-primary hover:underline">View Mobile Number APIs →</a>
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-accent/20 p-4 hover:border-accent/40 transition-colors">
+    <h3 className="text-lg font-semibold mb-2 text-primary">Intelligent Messaging</h3>
+    <p className="text-sm text-slate-600 dark:text-slate-400">Send and receive messages, manage routes, and search message history.</p>
+    <div className="mt-4">
+      <a href="/api-reference/intelligent-messaging" className="text-sm font-medium text-primary hover:underline">View Messaging APIs →</a>
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-accent/20 p-4 hover:border-accent/40 transition-colors">
+    <h3 className="text-lg font-semibold mb-2 text-primary">Intelligent Voice</h3>
+    <p className="text-sm text-slate-600 dark:text-slate-400">Manage voice calls, configure voice routes, and search call history.</p>
+    <div className="mt-4">
+      <a href="/api-reference/intelligent-voice" className="text-sm font-medium text-primary hover:underline">View Voice APIs →</a>
+    </div>
+  </div>
+</div>
+
+## Base URL
+
+All API requests should be made to the following base URL:
+
+```
+https://api.telegent.com/
+```
+
+## API Versioning
+
+Telegent APIs are versioned. The current version is `v1.0`. Always include the version in your API endpoints:
+
+```
+https://api.telegent.com/v1.0/
+```
+
+## Authentication
+
+All API requests require authentication using either:
+
+- **Pop-Token**: A session token obtained through the OAuth2 authentication endpoint
+- **API Key**: For select endpoints that accept direct API key authentication
+
+Learn more in the [Authentication](/api-reference/authentication) section.
+
+## Response Format
+
+All API responses are returned in JSON format with PascalCase property names.
+
+## Error Handling
+
+The API returns appropriate HTTP status codes along with error details in the response body:
+
+```json
+{
+  "Type": "Error type",
+  "Title": "Error title",
+  "Status": 400,
+  "Errors": {
+    "Field": ["Error message"]
+  },
+  "TraceId": "Unique error trace ID"
+}
+``` 

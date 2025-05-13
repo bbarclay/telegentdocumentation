@@ -1,9 +1,8 @@
-const meta = {
-  index: "",
-  "get-started": "",
-  features: "",
-  themes: "",
-  advanced: "",
-};
-
-export default meta;
+export default {
+  index: "Introduction",
+  "get-started": "Get Started",
+  features: "Features",
+  advanced: "Advanced",
+  themes: "Themes",
+  "api-reference": "API Reference"
+}

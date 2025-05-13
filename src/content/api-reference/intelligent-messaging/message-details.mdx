@@ -1,0 +1,126 @@
+# Message Details
+
+<div className="mt-4 border border-accent/20 rounded-md overflow-hidden">
+  <div className="bg-accent/5 px-4 py-2 border-b border-accent/20 flex justify-between items-center">
+    <div className="flex items-center gap-2">
+      <span className="bg-green-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">GET</span>
+      <span className="font-mono text-sm">/v1.0/message/details</span>
+    </div>
+    <span className="text-xs font-medium text-slate-500">Get Message Details</span>
+  </div>
+  
+  <div className="p-4">
+    <p className="text-sm mb-4">
+      This endpoint retrieves details of a specific message identified by its MessageID.
+    </p>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Request Parameters</h4>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b border-accent/20">
+            <th className="text-left py-2 font-semibold">Parameter</th>
+            <th className="text-left py-2 font-semibold">Type</th>
+            <th className="text-left py-2 font-semibold">Description</th>
+            <th className="text-left py-2 font-semibold">Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">MessageId</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The unique identifier of the message</td>
+            <td className="py-2">Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Response</h4>
+      <p className="text-sm mb-2">
+        The response will contain the details of the message in Pascal casing format.
+      </p>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```json
+{
+  "MessageId": 12345,
+  "SenderName": "Sender",
+  "ReceiverName": "Receiver",
+  "MessageContent": "Hello!",
+  "Timestamp": "2024-01-29T10:00:00Z"
+}
+```
+      </div>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Response Properties</h4>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b border-accent/20">
+            <th className="text-left py-2 font-semibold">Property</th>
+            <th className="text-left py-2 font-semibold">Type</th>
+            <th className="text-left py-2 font-semibold">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">MessageId</td>
+            <td className="py-2">Integer</td>
+            <td className="py-2">The unique identifier of the message</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">SenderName</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The name of the sender</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">ReceiverName</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The name of the receiver</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">MessageContent</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The content of the message</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">Timestamp</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The timestamp when the message was sent</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Python Example</h4>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```python
+import requests
+
+url = "https://api.telegent.com/v1.0/message/details"
+
+params = {
+  "MessageID": "MSG123456789"
+}
+
+headers = {
+  "Pop-Token": "YOUR_TOKEN_HERE"
+}
+
+response = requests.get(url, headers=headers, params=params)
+data = response.json()
+
+print(data)
+```
+      </div>
+    </div>
+  </div>
+</div>
+
+## Related Endpoints
+
+- [Send Outbound Message](/api-reference/intelligent-messaging/outbound-message) - Send a new message
+- [Message Search](/api-reference/intelligent-messaging/message-search) - Search for messages 

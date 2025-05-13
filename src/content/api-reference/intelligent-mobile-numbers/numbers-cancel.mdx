@@ -1,0 +1,196 @@
+# Cancel Numbers
+
+<div className="mt-4 border border-accent/20 rounded-md overflow-hidden">
+  <div className="bg-accent/5 px-4 py-2 border-b border-accent/20 flex justify-between items-center">
+    <div className="flex items-center gap-2">
+      <span className="bg-blue-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">POST</span>
+      <span className="font-mono text-sm">/v1.0/numbers/cancel</span>
+    </div>
+    <span className="text-xs font-medium text-slate-500">Cancel Phone Numbers</span>
+  </div>
+  
+  <div className="p-4">
+    <p className="text-sm mb-4">
+      This API endpoint allows you to cancel specific phone numbers with the provided effective cancellation date.
+    </p>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Request Body</h4>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```json
+{
+  "EffectiveCancelDate": "12/31/2023",
+  "PhoneNumbers": [
+    {
+      "Number": "12016093801"
+    },
+    {
+      "Number": "12232233180"
+    }
+  ]
+}
+```
+      </div>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Request Parameters</h4>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b border-accent/20">
+            <th className="text-left py-2 font-semibold">Parameter</th>
+            <th className="text-left py-2 font-semibold">Type</th>
+            <th className="text-left py-2 font-semibold">Description</th>
+            <th className="text-left py-2 font-semibold">Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">EffectiveCancelDate</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The effective cancel date in the format "MM/DD/YYYY"</td>
+            <td className="py-2">Yes</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">PhoneNumbers</td>
+            <td className="py-2">Array</td>
+            <td className="py-2">An array of phone numbers to be cancelled</td>
+            <td className="py-2">Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Response</h4>
+      <p className="text-sm mb-2">
+        A successful request returns a JSON object containing the cancellation details.
+      </p>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```json
+{
+  "OrderCancellationID": "JNUOID-9073057030750743",
+  "DateCancellationSubmitted": "11/06/2024",
+  "EffectiveDate": "12/20/2023",
+  "NumbersCancelled": [
+    {
+      "Number": 12016093801,
+      "CancellationFee": 2.25
+    },
+    {
+      "Number": 12232233180,
+      "CancellationFee": 2.25
+    }
+  ]
+}
+```
+      </div>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Response Properties</h4>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b border-accent/20">
+            <th className="text-left py-2 font-semibold">Property</th>
+            <th className="text-left py-2 font-semibold">Type</th>
+            <th className="text-left py-2 font-semibold">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">OrderCancellationID</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The unique identifier for the cancellation order</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">DateCancellationSubmitted</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The date when the cancellation was submitted</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">EffectiveDate</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The effective date of cancellation</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">NumbersCancelled</td>
+            <td className="py-2">Array</td>
+            <td className="py-2">An array of objects containing details of cancelled numbers</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Python Example</h4>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```python
+import requests
+import json
+
+url = "https://api.telegent.com/v1.0/numbers/cancel"
+
+payload = json.dumps({
+  "EffectiveCancelDate": "12/31/2023",
+  "PhoneNumbers": [
+    {
+      "Number": "12016093801"
+    }
+  ]
+})
+
+headers = {
+  "Content-Type": "application/json",
+  "Pop-Token": "YOUR_TOKEN_HERE"
+}
+
+response = requests.post(url, headers=headers, data=payload)
+data = response.json()
+
+print(data)
+```
+      </div>
+    </div>
+    
+    <div className="rounded-md bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 p-4">
+      <div className="flex">
+        <div className="flex-shrink-0">
+          <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+          </svg>
+        </div>
+        <div className="ml-3">
+          <h3 className="text-sm font-medium text-red-800 dark:text-red-200">Warning</h3>
+          <div className="mt-2 text-sm text-red-700 dark:text-red-300">
+            <p>
+              Cancellation is a permanent action and cannot be undone. Cancelled numbers may not be available for re-provisioning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Cancellation Process
+
+When you submit a cancellation request:
+
+1. The system immediately registers your cancellation request
+2. Numbers remain active until the effective cancellation date
+3. On the effective date, numbers are deactivated from your account
+4. Cancellation fees (if applicable) are applied to your account
+
+## Important Notes
+
+- You can schedule cancellations up to 90 days in advance
+- Cancellation requests can be modified or revoked before the effective date
+- Cancellation fees may apply based on your contract terms
+- Numbers released by cancellation may be reassigned to other customers
+
+## Related Endpoints
+
+- [Number Details](/api-reference/intelligent-mobile-numbers/number-details) - View number details
+- [Number Inventory](/api-reference/intelligent-mobile-numbers/number-inventory) - List your number inventory
+- [Number Provision](/api-reference/intelligent-mobile-numbers/number-provision) - Provision new numbers 

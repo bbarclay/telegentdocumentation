@@ -1,0 +1,209 @@
+# Update Numbers
+
+<div className="mt-4 border border-accent/20 rounded-md overflow-hidden">
+  <div className="bg-accent/5 px-4 py-2 border-b border-accent/20 flex justify-between items-center">
+    <div className="flex items-center gap-2">
+      <span className="bg-blue-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">POST</span>
+      <span className="font-mono text-sm">/v1.0/numbers/update</span>
+    </div>
+    <span className="text-xs font-medium text-slate-500">Update Phone Number Details</span>
+  </div>
+  
+  <div className="p-4">
+    <p className="text-sm mb-4">
+      This endpoint allows you to update phone number details such as SMS/voice settings and routing information.
+    </p>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Request Body</h4>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```json
+{
+  "MessageRouteId": "MR12345",
+  "PhoneNumber": "18015555555",
+  "NumberType": "p2p",
+  "SmsEnabled": "Yes",
+  "ProductId": "MVNO",
+  "VoiceEnabled": "Yes",
+  "SmsUrl": "https://endpoint.com",
+  "SmsUrlMethod": "POST",
+  "VoiceRouteId": "T9992774",
+  "CallerId": "18015556666"
+}
+```
+      </div>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Request Parameters</h4>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b border-accent/20">
+            <th className="text-left py-2 font-semibold">Parameter</th>
+            <th className="text-left py-2 font-semibold">Type</th>
+            <th className="text-left py-2 font-semibold">Description</th>
+            <th className="text-left py-2 font-semibold">Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">MessageRouteId</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The ID of the message route</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">PhoneNumber</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The phone number to be updated</td>
+            <td className="py-2">Yes</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">NumberType</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The type of the phone number</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">SmsEnabled</td>
+            <td className="py-2">String</td>
+            <td className="py-2">Indicates whether SMS is enabled for the phone number</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">ProductId</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The ID of the product</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">VoiceEnabled</td>
+            <td className="py-2">String</td>
+            <td className="py-2">Indicates whether voice calling is enabled for the phone number</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">SmsUrl</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The URL for SMS</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">SmsUrlMethod</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The HTTP method for the SMS URL</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">VoiceRouteId</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The ID of the voice route</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">CallerId</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The caller ID for the phone number</td>
+            <td className="py-2">No</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Response</h4>
+      <p className="text-sm mb-2">
+        A successful request returns a JSON object containing the updated phone number details.
+      </p>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```json
+{
+  "LastDateModified": "2024-01-28T17:42:41.9606287Z",
+  "PhoneNumber": "18015555555",
+  "NumberType": "p2p",
+  "SmsEnabled": "Yes",
+  "ProductId": "MVNO",
+  "VoiceEnabled": "Yes",
+  "SmsUrl": "https://endpoint.com",
+  "SmsUrlMethod": "POST",
+  "VoiceRouteId": "T9992774",
+  "CallerId": "18015556666"
+}
+```
+      </div>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Python Example</h4>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```python
+import requests
+import json
+
+url = "https://api.telegent.com/v1.0/numbers/update"
+
+payload = json.dumps({
+  "PhoneNumber": "18015555555",
+  "SmsEnabled": "Yes",
+  "VoiceEnabled": "Yes",
+  "SmsUrl": "https://new-endpoint.com",
+  "SmsUrlMethod": "POST",
+  "VoiceRouteId": "T9992775"
+})
+
+headers = {
+  "Content-Type": "application/json",
+  "Pop-Token": "YOUR_TOKEN_HERE"
+}
+
+response = requests.post(url, headers=headers, data=payload)
+data = response.json()
+
+print(data)
+```
+      </div>
+    </div>
+  </div>
+</div>
+
+## Common Update Scenarios
+
+### Changing SMS Webhook URL
+
+To change the SMS webhook URL for a number:
+
+```json
+{
+  "PhoneNumber": "18015555555",
+  "SmsUrl": "https://new-endpoint.com",
+  "SmsUrlMethod": "POST"
+}
+```
+
+### Enabling or Disabling Voice
+
+To enable or disable voice capability for a number:
+
+```json
+{
+  "PhoneNumber": "18015555555",
+  "VoiceEnabled": "Yes"
+}
+```
+
+### Updating Voice Route
+
+To change the voice route for a number:
+
+```json
+{
+  "PhoneNumber": "18015555555",
+  "VoiceRouteId": "T9992775"
+}
+```
+
+## Related Endpoints
+
+- [Number Details](/api-reference/intelligent-mobile-numbers/number-details) - View number details
+- [Number Provision](/api-reference/intelligent-mobile-numbers/number-provision) - Provision new numbers
+- [Numbers Cancel](/api-reference/intelligent-mobile-numbers/numbers-cancel) - Cancel numbers 

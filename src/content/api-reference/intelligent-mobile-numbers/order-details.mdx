@@ -1,0 +1,146 @@
+# Order Details
+
+<div className="mt-4 border border-accent/20 rounded-md overflow-hidden">
+  <div className="bg-accent/5 px-4 py-2 border-b border-accent/20 flex justify-between items-center">
+    <div className="flex items-center gap-2">
+      <span className="bg-green-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">GET</span>
+      <span className="font-mono text-sm">/v1.0/numbers/order</span>
+    </div>
+    <span className="text-xs font-medium text-slate-500">Retrieve Order Details</span>
+  </div>
+  
+  <div className="p-4">
+    <p className="text-sm mb-4">
+      This endpoint retrieves the details of a specific order by providing the OrderId as a query parameter.
+    </p>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Request Parameters</h4>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b border-accent/20">
+            <th className="text-left py-2 font-semibold">Parameter</th>
+            <th className="text-left py-2 font-semibold">Type</th>
+            <th className="text-left py-2 font-semibold">Description</th>
+            <th className="text-left py-2 font-semibold">Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">OrderId</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The unique identifier of the order</td>
+            <td className="py-2">Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Response</h4>
+      <p className="text-sm mb-2">
+        A successful request returns a JSON object containing the details of the requested order.
+      </p>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```json
+{
+  "OrderDate": "10/01/2024",
+  "OrderId": "JNOID-ddbaad7c-38c8-4cb4-bf0d-87ed9064f021",
+  "OrderStatus": "Pending",
+  "PhoneNumbersOrdered": [
+    {
+      "Number": 12016093801,
+      "NumberID": "JNID-238472983792",
+      "Status": "Pending"
+    },
+    {
+      "Number": 12016094322,
+      "NumberID": "JNID-238472983792",
+      "Status": "Not Available"
+    },
+    {
+      "Number": 12232233180,
+      "NumberID": "JNID-627739974556",
+      "Status": "Ready"
+    }
+  ]
+}
+```
+      </div>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Response Properties</h4>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b border-accent/20">
+            <th className="text-left py-2 font-semibold">Property</th>
+            <th className="text-left py-2 font-semibold">Type</th>
+            <th className="text-left py-2 font-semibold">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">OrderDate</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The date of the order</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">OrderId</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The unique identifier of the order</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">OrderStatus</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The status of the order</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">PhoneNumbersOrdered</td>
+            <td className="py-2">Array</td>
+            <td className="py-2">An array of objects containing the details of the ordered phone numbers</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Python Example</h4>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```python
+import requests
+
+url = "https://api.telegent.com/v1.0/numbers/order"
+
+params = {
+  "OrderId": "JNOID-ddbaad7c-38c8-4cb4-bf0d-87ed9064f021"
+}
+
+headers = {
+  "Pop-Token": "YOUR_TOKEN_HERE"
+}
+
+response = requests.get(url, headers=headers, params=params)
+data = response.json()
+
+print(data)
+```
+      </div>
+    </div>
+  </div>
+</div>
+
+## Order Statuses
+
+Orders may have the following statuses:
+
+- **Pending**: The order has been submitted but is still being processed
+- **Complete**: The order has been successfully processed
+- **Cancelled**: The order has been cancelled
+- **Failed**: The order could not be processed
+
+## Related Endpoints
+
+- [Number Inventory](/api-reference/intelligent-mobile-numbers/number-inventory) - View your inventory of phone numbers
+- [Number Provision](/api-reference/intelligent-mobile-numbers/number-provision) - Provision new phone numbers
+- [Numbers Cancel](/api-reference/intelligent-mobile-numbers/numbers-cancel) - Cancel phone numbers 

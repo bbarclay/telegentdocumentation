@@ -1,0 +1,228 @@
+# Send Outbound Message
+
+<div className="mt-4 border border-accent/20 rounded-md overflow-hidden">
+  <div className="bg-accent/5 px-4 py-2 border-b border-accent/20 flex justify-between items-center">
+    <div className="flex items-center gap-2">
+      <span className="bg-blue-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">POST</span>
+      <span className="font-mono text-sm">/v1.0/message/outbound</span>
+    </div>
+    <span className="text-xs font-medium text-slate-500">Send Outbound Message</span>
+  </div>
+  
+  <div className="p-4">
+    <p className="text-sm mb-4">
+      This endpoint allows you to send an outbound message.
+    </p>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Request Body</h4>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```json
+{
+  "Direction": "Outbound",
+  "Type": "p2p",
+  "CampaignID": "JCID-dsuhofh3882",
+  "To": [
+    {"Number": "12016093801"},
+    {"Number": "+12232233180"}
+  ],
+  "From": "18018018011",
+  "Owner": "18015555555",
+  "Body": "Hello there!!!",
+  "Country": "United States",
+  "CreatedOn": "16:45:59 MST 2025-01-23",
+  "MessageType": "mms",
+  "MmsMedia": [
+    {"MediaURL": "https://results.com"},
+    {"MediaURL": "https://results2.com"}
+  ],
+  "MmsBase64": [
+    {
+      "Base64": "dkjjkdflajdfjo3ji3jjljfkjaskjfad",
+      "BaseType": "audio/wav"
+    },
+    {
+      "Base64": "dkjjkdflajdfjo3ji3jjljfkjaskjfad",
+      "BaseType": "audio/wav"
+    }
+  ]
+}
+```
+      </div>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Request Parameters</h4>
+      <table className="min-w-full text-sm">
+        <thead>
+          <tr className="border-b border-accent/20">
+            <th className="text-left py-2 font-semibold">Parameter</th>
+            <th className="text-left py-2 font-semibold">Type</th>
+            <th className="text-left py-2 font-semibold">Description</th>
+            <th className="text-left py-2 font-semibold">Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">Direction</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The direction of the message</td>
+            <td className="py-2">Yes</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">Type</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The type of message</td>
+            <td className="py-2">Yes</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">CampaignID</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The campaign ID</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">To</td>
+            <td className="py-2">Array</td>
+            <td className="py-2">An array of recipient numbers</td>
+            <td className="py-2">Yes</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">From</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The sender's number</td>
+            <td className="py-2">Yes</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">Owner</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The owner's number</td>
+            <td className="py-2">Yes</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">Body</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The message body</td>
+            <td className="py-2">Yes</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">Country</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The country of the recipient</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">CreatedOn</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The timestamp of message creation</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">MessageType</td>
+            <td className="py-2">String</td>
+            <td className="py-2">The type of message (e.g., "sms", "mms")</td>
+            <td className="py-2">Yes</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">MmsMedia</td>
+            <td className="py-2">Array</td>
+            <td className="py-2">An array of media URLs for MMS messages</td>
+            <td className="py-2">No</td>
+          </tr>
+          <tr className="border-b border-accent/10">
+            <td className="py-2 font-mono">MmsBase64</td>
+            <td className="py-2">Array</td>
+            <td className="py-2">An array of base64 encoded MMS media with their types</td>
+            <td className="py-2">No</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Response</h4>
+      <p className="text-sm mb-2">
+        A successful request returns a JSON object containing the message delivery details.
+      </p>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```json
+{
+  "MessageId": "MSG123456789",
+  "Status": "Queued",
+  "RecipientCount": 2,
+  "CreatedOn": "2024-01-28T17:42:41.9606287Z"
+}
+```
+      </div>
+    </div>
+    
+    <div className="mb-6">
+      <h4 className="text-sm font-semibold mb-2">Python Example</h4>
+      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-md p-3 overflow-x-auto">
+```python
+import requests
+import json
+
+url = "https://api.telegent.com/v1.0/message/outbound"
+
+payload = json.dumps({
+  "Direction": "Outbound",
+  "Type": "p2p",
+  "To": [
+    {"Number": "12016093801"},
+    {"Number": "+12232233180"}
+  ],
+  "From": "18018018011",
+  "Owner": "18015555555",
+  "Body": "Hello there!!!",
+  "MessageType": "sms"
+})
+
+headers = {
+  "Content-Type": "application/json",
+  "Pop-Token": "YOUR_TOKEN_HERE"
+}
+
+response = requests.post(url, headers=headers, data=payload)
+data = response.json()
+
+print(data)
+```
+      </div>
+    </div>
+  </div>
+</div>
+
+## Message Types
+
+The API supports the following message types:
+
+- **SMS**: Standard text message
+- **MMS**: Multimedia message that can include images, audio, or video
+
+## Including Media in Messages
+
+To include media in your MMS messages, you have two options:
+
+1. **Media URLs**: Provide URLs to publicly accessible media files
+   ```json
+   "MmsMedia": [
+     {"MediaURL": "https://example.com/image.jpg"}
+   ]
+   ```
+
+2. **Base64 Encoded Media**: Embed base64 encoded media directly in the request
+   ```json
+   "MmsBase64": [
+     {
+       "Base64": "base64EncodedString",
+       "BaseType": "image/jpeg"
+     }
+   ]
+   ```
+
+## Related Endpoints
+
+- [Message Details](/api-reference/intelligent-messaging/message-details) - Get message details
+- [Message Search](/api-reference/intelligent-messaging/message-search) - Search messages
+- [Message Routes](/api-reference/intelligent-messaging/message-routes) - Manage message routes 

@@ -1,0 +1,148 @@
+# Intelligent Voice
+
+The Intelligent Voice API allows you to make and manage voice calls, configure voice routes, and search call history.
+
+## Available Endpoints
+
+<div className="grid grid-cols-1 gap-4 mt-6">
+  <div className="border border-accent/20 rounded-lg overflow-hidden">
+    <div className="bg-accent/5 px-4 py-2 border-b border-accent/20">
+      <h3 className="text-base font-medium">Call Management</h3>
+    </div>
+    <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="bg-green-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">GET</span>
+          <span className="font-mono text-sm">/v1.0/voice/calls/outbound</span>
+        </div>
+        <p className="text-sm mt-1 text-slate-600 dark:text-slate-400">Make an outbound call</p>
+        <a href="/api-reference/intelligent-voice/outbound-call" className="text-xs font-medium text-primary mt-2 inline-block hover:underline">View Documentation →</a>
+      </div>
+      
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="bg-green-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">GET</span>
+          <span className="font-mono text-sm">/v1.0/voice/calls/details</span>
+        </div>
+        <p className="text-sm mt-1 text-slate-600 dark:text-slate-400">Get details of a specific call</p>
+        <a href="/api-reference/intelligent-voice/call-details" className="text-xs font-medium text-primary mt-2 inline-block hover:underline">View Documentation →</a>
+      </div>
+      
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="bg-green-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">GET</span>
+          <span className="font-mono text-sm">/v1.0/voice/calls/search</span>
+        </div>
+        <p className="text-sm mt-1 text-slate-600 dark:text-slate-400">Search for calls</p>
+        <a href="/api-reference/intelligent-voice/call-search" className="text-xs font-medium text-primary mt-2 inline-block hover:underline">View Documentation →</a>
+      </div>
+      
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="bg-green-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">GET</span>
+          <span className="font-mono text-sm">/v1.0/voice/calls/update</span>
+        </div>
+        <p className="text-sm mt-1 text-slate-600 dark:text-slate-400">Update an existing call</p>
+        <a href="/api-reference/intelligent-voice/update-call" className="text-xs font-medium text-primary mt-2 inline-block hover:underline">View Documentation →</a>
+      </div>
+    </div>
+  </div>
+  
+  <div className="border border-accent/20 rounded-lg overflow-hidden">
+    <div className="bg-accent/5 px-4 py-2 border-b border-accent/20">
+      <h3 className="text-base font-medium">Voice Routes</h3>
+    </div>
+    <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="bg-green-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">GET</span>
+          <span className="font-mono text-sm">/v1.0/voice/routes</span>
+        </div>
+        <p className="text-sm mt-1 text-slate-600 dark:text-slate-400">Get details of a voice route</p>
+        <a href="/api-reference/intelligent-voice/voice-routes" className="text-xs font-medium text-primary mt-2 inline-block hover:underline">View Documentation →</a>
+      </div>
+      
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="bg-blue-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">POST</span>
+          <span className="font-mono text-sm">/v1.0/voice/routes</span>
+        </div>
+        <p className="text-sm mt-1 text-slate-600 dark:text-slate-400">Create a new voice route</p>
+        <a href="/api-reference/intelligent-voice/voice-routes-create" className="text-xs font-medium text-primary mt-2 inline-block hover:underline">View Documentation →</a>
+      </div>
+      
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="bg-blue-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">POST</span>
+          <span className="font-mono text-sm">/v1.0/voice/routes/update</span>
+        </div>
+        <p className="text-sm mt-1 text-slate-600 dark:text-slate-400">Update an existing voice route</p>
+        <a href="/api-reference/intelligent-voice/voice-routes-update" className="text-xs font-medium text-primary mt-2 inline-block hover:underline">View Documentation →</a>
+      </div>
+      
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="bg-blue-500 text-white px-2 py-0.5 rounded-md text-xs font-semibold">POST</span>
+          <span className="font-mono text-sm">/v1.0/voice/routes/delete</span>
+        </div>
+        <p className="text-sm mt-1 text-slate-600 dark:text-slate-400">Delete a voice route</p>
+        <a href="/api-reference/intelligent-voice/voice-routes-delete" className="text-xs font-medium text-primary mt-2 inline-block hover:underline">View Documentation →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Voice Call Flow
+
+The following diagram illustrates how voice calls flow through the Telegent platform:
+
+<div className="my-6">
+```mermaid
+sequenceDiagram
+    participant Caller
+    participant TelegentAPI as Telegent API
+    participant VoiceRoutes as Voice Routes
+    participant Recipient
+    
+    Caller->>TelegentAPI: Make Outbound Call
+    TelegentAPI->>VoiceRoutes: Route Call
+    VoiceRoutes->>Recipient: Connect Call
+    
+    alt Call Connected
+        Recipient-->>Caller: Call Established
+        Caller->>Recipient: Audio Exchange
+        Note over Caller,Recipient: Call in Progress
+        Caller->>TelegentAPI: End Call
+        TelegentAPI->>Recipient: Terminate Call
+    else Call Failed
+        VoiceRoutes-->>TelegentAPI: Connection Failed
+        TelegentAPI-->>Caller: Call Failed Status
+    end
+```
+</div>
+
+## Response Format
+
+All responses from the Intelligent Voice API use PascalCase property names. Here's an example response from the call details endpoint:
+
+```json
+{
+  "CallId": "JCID-00348008102307aT03",
+  "Status": "Completed",
+  "From": "+15235555555",
+  "To": "+18015555555",
+  "Duration": 120,
+  "StartTime": "2024-01-28T17:42:41.9606287Z",
+  "EndTime": "2024-01-28T17:44:41.9606287Z"
+}
+```
+
+## Authentication
+
+All Intelligent Voice API endpoints require authentication. Include your Pop-Token in the request headers:
+
+```
+Pop-Token: YOUR_TOKEN_HERE
+```
+
+See the [Authentication](/api-reference/authentication) section for details on obtaining an access token. 

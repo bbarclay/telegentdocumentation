@@ -70,15 +70,15 @@ export default async function RootLayout({
                       </h1>
                     </div>
                   }
-                  projectLink=""
+                  projectLink="https://www.telegent.com"
                 />
               </div>
             </div>
           }
           pageMap={await getPageMap()}
           sidebar={{ 
-            defaultMenuCollapseLevel: 1, 
-            autoCollapse: true
+            defaultMenuCollapseLevel: 10, 
+            autoCollapse: false
           }}
           footer={footer}
         >
