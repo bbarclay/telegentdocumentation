@@ -71,7 +71,7 @@ try:
 
     call_details = response.json()
     print("Call initiated successfully:")
-    print(f"Call ID: {call_details.get('CallId')}")
+    print(f"Call Id: {call_details.get('CallId')}")
     print(f"Status: {call_details.get('Status')}")
 
 except requests.exceptions.RequestException as e:

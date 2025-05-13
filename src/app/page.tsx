@@ -44,7 +44,7 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
               title: "Tutorials",
@@ -94,7 +94,7 @@ export default function Home() {
               <p className="text-foreground/70">{card.description}</p>
             </Link>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

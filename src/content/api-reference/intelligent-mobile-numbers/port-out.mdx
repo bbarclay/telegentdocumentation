@@ -127,8 +127,7 @@ payload = json.dumps({
 })
 
 headers = {
-  "Content-Type": "application/json",
-  "Pop-Token": "YOUR_TOKEN_HERE"
+  "Content-Type": "application/json"
 }
 
 response = requests.post(url, headers=headers, data=payload)

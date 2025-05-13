@@ -124,7 +124,7 @@ try:
 
     record_status = response.json()
     print("Start Recording Status:")
-    print(f"Call ID: {record_status.get('CallId')}")
+    print(f"Call Id: {record_status.get('CallId')}")
     print(f"Message: {record_status.get('Message')}")
 
 except requests.exceptions.RequestException as e:
@@ -151,7 +151,7 @@ try:
 
     stop_status = response.json()
     print("Stop Recording Status:")
-    print(f"Call ID: {stop_status.get('CallId')}")
+    print(f"Call Id: {stop_status.get('CallId')}")
     print(f"Message: {stop_status.get('Message')}")
 
 except requests.exceptions.RequestException as e:

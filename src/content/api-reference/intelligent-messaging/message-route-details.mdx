@@ -4,11 +4,11 @@ title: Message Route Details
 
 ## Message Route Details
 
-This endpoint allows you to retrieve detailed information about a specific message route using its unique `RouteID`.
+This endpoint allows you to retrieve detailed information about a specific message route using its unique `RouteId`.
 
 ### Endpoint
 
-`/account/message/routes/{RouteID}`
+`/account/message/routes/{RouteId}`
 
 **Method:** `GET`
 
@@ -16,7 +16,7 @@ This endpoint allows you to retrieve detailed information about a specific messa
 
 | Parameter | Type   | Description                         | Required |
 |-----------|--------|-------------------------------------|----------|
-| `RouteID` | string | The unique identifier of the message route. | Yes      |
+| `RouteId` | string | The unique identifier of the message route. | Yes      |
 
 ### Response Body (200 OK)
 
@@ -24,7 +24,7 @@ The response will include the details of the message route in Pascal casing form
 
 ```json
 {
-  "RouteID": "MRID-12345",
+  "RouteId": "MRID-12345",
   "RouteName": "Main SMS Webhook",
   "RouteType": "Webhook",
   "SmsUrl": "https://apiendpoint.com",
@@ -40,7 +40,7 @@ The response will include the details of the message route in Pascal casing form
 
 | Property           | Type    | Description                                  |
 |--------------------|---------|----------------------------------------------|
-| `RouteID`          | string  | The unique identifier for the message route. |
+| `RouteId`          | string  | The unique identifier for the message route. |
 | `RouteName`        | string  | The name of the message route.               |
 | `RouteType`        | string  | The type of message route.                   |
 | `SmsUrl`           | string  | The URL for handling SMS.                    |
@@ -58,9 +58,7 @@ import requests
 route_id = "MRID-12345"
 url = f"https://api.telegent.com/v1.0/account/message/routes/{route_id}"
 
-headers = {
-  "Pop-Token": "YOUR_TOKEN_HERE"
-}
+
 
 try:
     response = requests.get(url, headers=headers)
@@ -68,7 +66,7 @@ try:
 
     route_details = response.json()
     print("Message Route Details:")
-    print(f"Route ID: {route_details.get('RouteID')}")
+    print(f"Route ID: {route_details.get('RouteId')}")
     print(f"Route Name: {route_details.get('RouteName')}")
     print(f"Route Type: {route_details.get('RouteType')}")
 
@@ -85,7 +83,7 @@ sequenceDiagram
     participant Y as Your Application
     participant T as Telegent Platform
 
-    Y->>T: GET /account/message/routes/{RouteID} (Request Route Details)
+    Y->>T: GET /account/message/routes/{RouteId} (Request Route Details)
     activate T
     T-->>Y: HTTP 200 OK (Route Details Response)
     deactivate T

@@ -47,7 +47,7 @@ try:
 
     hangup_status = response.json()
     print("Hangup Status:")
-    print(f"Call ID: {hangup_status.get('CallId')}")
+    print(f"Call Id: {hangup_status.get('CallId')}")
     print(f"Message: {hangup_status.get('Message')}")
 
 except requests.exceptions.RequestException as e:

@@ -47,7 +47,7 @@ A successful creation request will typically return a `201 Created` response wit
 
 ```json
 {
-  "RouteId": "VRID-abcxyz",
+  "RouteId": "VRId-abcxyz",
   "RouteName": "My Inbound Call Webhook",
   "RouteType": "Webhook",
   "InboundUrl": "https://your-app.com/new-voice-webhook",
@@ -93,7 +93,7 @@ try:
 
     new_route = response.json()
     print("Voice Route created successfully:")
-    print(f"Route ID: {new_route.get('RouteId')}")
+    print(f"Route Id: {new_route.get('RouteId')}")
     print(f"Route Name: {new_route.get('RouteName')}")
     print(f"Route Type: {new_route.get('RouteType')}")
 

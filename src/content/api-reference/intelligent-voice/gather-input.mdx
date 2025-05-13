@@ -108,7 +108,7 @@ try:
 
     gather_status = response.json()
     print("Gather Action Status:")
-    print(f"Call ID: {gather_status.get('CallId')}")
+    print(f"Call Id: {gather_status.get('CallId')}")
     print(f"Message: {gather_status.get('Message')}")
 
 except requests.exceptions.RequestException as e:

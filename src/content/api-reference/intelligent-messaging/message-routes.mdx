@@ -50,7 +50,7 @@
 ```json
 [
   {
-    "RouteID": "MRID-12345",
+    "RouteId": "MRID-12345",
     "RouteName": "Main SMS Webhook",
     "RouteType": "Webhook",
     "SmsUrl": "https://apiendpoint.com",
@@ -61,7 +61,7 @@
     "CreatedDate": "2024-01-29T10:30:00Z"
   },
   {
-    "RouteID": "MRID-67890",
+    "RouteId": "MRID-67890",
     "RouteName": "Secondary Route",
     "RouteType": "Other",
     "SmsRouteEnabled": false,
@@ -84,7 +84,7 @@
         </thead>
         <tbody>
           <tr className="border-b border-accent/10">
-            <td className="py-2 font-mono">RouteID</td>
+            <td className="py-2 font-mono">RouteId</td>
             <td className="py-2">String</td>
             <td className="py-2">The unique identifier for the message route</td>
           </tr>
@@ -140,9 +140,6 @@ import requests
 
 url = "https://api.telegent.com/v1.0/account/message/routes"
 
-headers = {
-  "Pop-Token": "YOUR_TOKEN_HERE"
-}
 
 response = requests.get(url, headers=headers)
 data = response.json()

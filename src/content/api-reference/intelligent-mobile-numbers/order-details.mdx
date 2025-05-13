@@ -50,17 +50,17 @@
   "PhoneNumbersOrdered": [
     {
       "Number": 12016093801,
-      "NumberID": "JNID-238472983792",
+      "NumberId": "JNID-238472983792",
       "Status": "Pending"
     },
     {
       "Number": 12016094322,
-      "NumberID": "JNID-238472983792",
+      "NumberId": "JNID-238472983792",
       "Status": "Not Available"
     },
     {
       "Number": 12232233180,
-      "NumberID": "JNID-627739974556",
+      "NumberId": "JNID-627739974556",
       "Status": "Ready"
     }
   ]
@@ -116,9 +116,6 @@ params = {
   "OrderId": "JNOID-ddbaad7c-38c8-4cb4-bf0d-87ed9064f021"
 }
 
-headers = {
-  "Pop-Token": "YOUR_TOKEN_HERE"
-}
 
 response = requests.get(url, headers=headers, params=params)
 data = response.json()

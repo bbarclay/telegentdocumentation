@@ -81,7 +81,7 @@
           <tr className="border-b border-accent/10">
             <td className="py-2 font-mono">ProductId</td>
             <td className="py-2">String</td>
-            <td className="py-2">The product ID associated with the number</td>
+            <td className="py-2">The product Id associated with the number</td>
           </tr>
           <tr className="border-b border-accent/10">
             <td className="py-2 font-mono">SmsEnabled</td>
@@ -106,7 +106,7 @@
           <tr className="border-b border-accent/10">
             <td className="py-2 font-mono">VoiceRouteId</td>
             <td className="py-2">String</td>
-            <td className="py-2">The ID of the voice route associated with the number</td>
+            <td className="py-2">The Id of the voice route associated with the number</td>
           </tr>
         </tbody>
       </table>
@@ -122,10 +122,6 @@ url = "https://api.telegent.com/v1.0/numbers"
 
 params = {
   "PhoneNumber": "18015555555"
-}
-
-headers = {
-  "Pop-Token": "YOUR_TOKEN_HERE"
 }
 
 response = requests.get(url, headers=headers, params=params)

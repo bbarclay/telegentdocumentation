@@ -84,7 +84,7 @@ try:
     route_list = response.json()
     print("Voice Routes:")
     for route in route_list.get('VoiceRoutes', []):
-        print(f"- Route ID: {route.get('RouteId')}, Name: {route.get('RouteName')}, Type: {route.get('RouteType')}")
+        print(f"- Route Id: {route.get('RouteId')}, Name: {route.get('RouteName')}, Type: {route.get('RouteType')}")
 
 except requests.exceptions.RequestException as e:
     print(f"Error retrieving voice route list: {e}")

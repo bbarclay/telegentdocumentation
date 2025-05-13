@@ -106,7 +106,7 @@ try:
     call_list = response.json()
     print("Recent Calls:")
     for call in call_list.get('Calls', []):
-        print(f"- Call ID: {call.get('CallId')}, From: {call.get('From')}, To: {call.get('To')}, Status: {call.get('Status')}")
+        print(f"- Call Id: {call.get('CallId')}, From: {call.get('From')}, To: {call.get('To')}, Status: {call.get('Status')}")
 
 except requests.exceptions.RequestException as e:
     print(f"Error retrieving call list: {e}")

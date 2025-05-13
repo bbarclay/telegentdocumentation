@@ -34,8 +34,8 @@ A successful deletion request will typically return a `200 OK` response confirmi
 ```python
 import requests
 
-route_id = "VRID-abcxyz"
-url = f"https://api.telegent.com/voice/routes/{route_id}"
+RouteId = "VRID-abcxyz"
+url = f"https://api.telegent.com/voice/routes/{RouteId}"
 
 headers = {
     "Authorization": "Bearer YOUR_ACCESS_TOKEN"
@@ -47,7 +47,7 @@ try:
 
     delete_status = response.json()
     print("Delete Voice Route Status:")
-    print(f"Route ID: {delete_status.get('RouteId')}")
+    print(f"Route Id: {delete_status.get('RouteId')}")
     print(f"Message: {delete_status.get('Message')}")
 
 except requests.exceptions.RequestException as e:
