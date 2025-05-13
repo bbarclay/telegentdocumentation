@@ -1,0 +1,71 @@
+---
+title: Delete Voice Route
+---
+
+## Delete Voice Route
+
+This endpoint allows you to delete an existing voice route.
+
+### Endpoint
+
+`/voice/routes/{RouteId}`
+
+**Method:** `DELETE`
+
+### Path Parameters
+
+| Parameter | Type   | Description                         | Required |
+|-----------|--------|-------------------------------------|----------|
+| `RouteId`  | string | The unique identifier of the voice route to delete. | Yes      |
+
+### Response Body (200 OK)
+
+A successful deletion request will typically return a `200 OK` response confirming the deletion.
+
+```json
+{
+  "Message": "Voice route deleted successfully",
+  "RouteId": "VRID-abcxyz"
+}
+```
+
+### Python Example
+
+```python
+import requests
+
+route_id = "VRID-abcxyz"
+url = f"https://api.telegent.com/voice/routes/{route_id}"
+
+headers = {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+}
+
+try:
+    response = requests.delete(url, headers=headers)
+    response.raise_for_status() # Raise an exception for bad status codes
+
+    delete_status = response.json()
+    print("Delete Voice Route Status:")
+    print(f"Route ID: {delete_status.get('RouteId')}")
+    print(f"Message: {delete_status.get('Message')}")
+
+except requests.exceptions.RequestException as e:
+    print(f"Error deleting voice route: {e}")
+    if response is not None:
+        print(f"Response Body: {response.text}")
+```
+
+### Delete Voice Route Flow
+
+```mermaid
+sequenceDiagram
+    participant Y as Your Application
+    participant T as Telegent Platform
+
+    Y->>T: DELETE /voice/routes/{RouteId} (Request Delete Route)
+    activate T
+    T-->>Y: HTTP 200 OK (Deletion Confirmation)
+    deactivate T
+    T->>T: Remove Voice Route Configuration
+``` 

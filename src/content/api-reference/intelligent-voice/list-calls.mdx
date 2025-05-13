@@ -1,0 +1,128 @@
+---
+title: List Calls
+---
+
+## List Calls
+
+This endpoint allows you to retrieve a list of recent voice calls associated with your account.
+
+### Endpoint
+
+`/voice/calls`
+
+**Method:** `GET`
+
+### Request Parameters
+
+| Parameter   | Type    | Description                                     | Required |
+|-------------|---------|-------------------------------------------------|----------|
+| `PageSize`  | integer | The number of records to return per page. Defaults to 50. | No       |
+| `PageToken` | string  | A token to retrieve the next page of results.     | No       |
+| `From`      | string  | Filter by the originating phone number.         | No       |
+| `To`        | string  | Filter by the destination phone number.         | No       |
+| `Direction` | string  | Filter by call direction (`inbound` or `outbound`). | No       |
+| `Status`    | string  | Filter by call status (e.g., `completed`, `failed`). | No       |
+| `StartTime` | string  | Filter by calls starting after this timestamp (ISO 8601). | No       |
+| `EndTime`   | string  | Filter by calls ending before this timestamp (ISO 8601). | No       |
+
+### Response Body (200 OK)
+
+The response will include a list of call objects and pagination information.
+
+```json
+{
+  "Calls": [
+    {
+      "CallId": "call_12345abcde",
+      "From": "+15551234567",
+      "To": "+15557654321",
+      "Direction": "outbound",
+      "Status": "completed",
+      "StartTime": "2023-10-27T10:00:00Z",
+      "EndTime": "2023-10-27T10:01:30Z",
+      "Duration": 90,
+      "ErrorCode": null,
+      "ErrorMessage": null,
+      "ClientState": "user123"
+    },
+    {
+      "CallId": "call_abcdef12345",
+      "From": "+15559876543",
+      "To": "+15551234567",
+      "Direction": "inbound",
+      "Status": "completed",
+      "StartTime": "2023-10-27T10:05:00Z",
+      "EndTime": "2023-10-27T10:06:15Z",
+      "Duration": 75,
+      "ErrorCode": null,
+      "ErrorMessage": null,
+      "ClientState": "branch42"
+    }
+  ],
+  "NextPageToken": "string",
+  "PageSize": 50
+}
+```
+
+### Response Properties
+
+| Property        | Type    | Description                                  |
+|-----------------|---------|----------------------------------------------|
+| `Calls`         | array   | A list of call objects.                      |
+| `CallId`        | string  | Unique identifier for the call.              |
+| `From`          | string  | The originating phone number.                |
+| `To`            | string  | The destination phone number.                |
+| `Direction`     | string  | The direction of the call (`inbound` or `outbound`). |
+| `Status`        | string  | The current status of the call.              |
+| `StartTime`     | string  | Timestamp when the call started.             |
+| `EndTime`       | string  | Timestamp when the call ended (if applicable). |
+| `Duration`      | integer | Duration of the call in seconds (if applicable). |
+| `ErrorCode`     | string  | Error code if the call failed.               |
+| `ErrorMessage`  | string  | Error message if the call failed.            |
+| `ClientState`   | string  | Custom data associated with the call.        |
+| `NextPageToken` | string  | Token to retrieve the next page of results, or null if no more pages. |
+| `PageSize`      | integer | The number of results per page.              |
+
+### Python Example
+
+```python
+import requests
+
+url = "https://api.telegent.com/voice/calls"
+
+headers = {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+}
+
+params = {
+    "PageSize": 100,
+    "Status": "completed"
+}
+
+try:
+    response = requests.get(url, headers=headers, params=params)
+    response.raise_for_status() # Raise an exception for bad status codes
+
+    call_list = response.json()
+    print("Recent Calls:")
+    for call in call_list.get('Calls', []):
+        print(f"- Call ID: {call.get('CallId')}, From: {call.get('From')}, To: {call.get('To')}, Status: {call.get('Status')}")
+
+except requests.exceptions.RequestException as e:
+    print(f"Error retrieving call list: {e}")
+    if response is not None:
+        print(f"Response Body: {response.text}")
+```
+
+### List Calls Flow
+
+```mermaid
+sequenceDiagram
+    participant Y as Your Application
+    participant T as Telegent Platform
+
+    Y->>T: GET /voice/calls?params (Request Call List)
+    activate T
+    T-->>Y: HTTP 200 OK (Call List Response)
+    deactivate T
+``` 
