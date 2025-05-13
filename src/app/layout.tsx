@@ -70,7 +70,6 @@ export default async function RootLayout({
                       </h1>
                     </div>
                   }
-                  projectLink="https://www.telegent.com"
                 />
               </div>
             </div>
