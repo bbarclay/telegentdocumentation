@@ -1,0 +1,313 @@
+import { Bleed } from 'nextra/components'
+
+# 🚀 Welcome to Telegent mPaaS
+
+**Telegent mPaaS** (Mobile Platform as a Service) is a comprehensive **cloud-native telecommunications platform** that empowers developers to build sophisticated communication applications with enterprise-grade APIs.
+
+Whether you're building IoT solutions, MVNO services, healthcare communication systems, or advanced messaging platforms, Telegent mPaaS provides the robust foundation you need.
+
+## 🌟 What Makes Telegent mPaaS Special?
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 mb-8">
+  <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/10">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-2 bg-blue-500 rounded-lg">
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </div>
+      <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100">Enterprise Performance</h3>
+    </div>
+    <ul className="text-sm text-blue-700 dark:text-blue-300 space-y-2">
+      <li>• **99.99% Uptime SLA** with global redundancy</li>
+      <li>• **Sub-100ms API latency** worldwide</li>
+      <li>• **Auto-scaling** infrastructure</li>
+      <li>• **Real-time** messaging and voice processing</li>
+    </ul>
+  </div>
+
+  <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/10">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-2 bg-green-500 rounded-lg">
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      </div>
+      <h3 className="text-lg font-semibold text-green-900 dark:text-green-100">Security & Compliance</h3>
+    </div>
+    <ul className="text-sm text-green-700 dark:text-green-300 space-y-2">
+      <li>• **SOC 2 & HIPAA** compliant infrastructure</li>
+      <li>• **JWT authentication** with token scoping</li>
+      <li>• **TLS 1.3** encryption for all communications</li>
+      <li>• **IP whitelisting** and access controls</li>
+    </ul>
+  </div>
+
+  <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/10">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-2 bg-purple-500 rounded-lg">
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </div>
+      <h3 className="text-lg font-semibold text-purple-900 dark:text-purple-100">Developer Experience</h3>
+    </div>
+    <ul className="text-sm text-purple-700 dark:text-purple-300 space-y-2">
+      <li>• **Comprehensive SDKs** for popular languages</li>
+      <li>• **Interactive documentation** with live examples</li>
+      <li>• **Webhook integration** for real-time events</li>
+      <li>• **24/7 developer support** with &lt;4hr response</li>
+    </ul>
+  </div>
+
+  <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/10">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-2 bg-orange-500 rounded-lg">
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <h3 className="text-lg font-semibold text-orange-900 dark:text-orange-100">Global Scale</h3>
+    </div>
+    <ul className="text-sm text-orange-700 dark:text-orange-300 space-y-2">
+      <li>• **Multi-region deployment** across 6 continents</li>
+      <li>• **Carrier-grade routing** with intelligent failover</li>
+      <li>• **Dynamic load balancing** for optimal performance</li>
+      <li>• **Compliance** with local telecommunications regulations</li>
+    </ul>
+  </div>
+</div>
+
+## 🛠️ Core API Services
+
+<Bleed>
+  <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800/50 dark:to-slate-700/30 border-y border-slate-200 dark:border-slate-600 py-12 px-6">
+    <div className="max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <div className="space-y-6">
+          <div className="flex items-start gap-4 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+            <div className="p-3 bg-blue-500 rounded-lg flex-shrink-0">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">🔐 Authentication</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">Secure JWT-based authentication with OAuth2 token generation, automatic refresh, and endpoint-specific scoping.</p>
+              <a href="/api-reference/authentication" className="text-blue-600 dark:text-blue-400 text-sm font-medium hover:underline">Explore Authentication →</a>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+            <div className="p-3 bg-purple-500 rounded-lg flex-shrink-0">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">💬 Intelligent Messaging</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">Advanced SMS/MMS platform with intelligent routing, delivery optimization, A2P/P2P support, and comprehensive analytics.</p>
+              <a href="/api-reference/intelligent-messaging" className="text-purple-600 dark:text-purple-400 text-sm font-medium hover:underline">Explore Messaging →</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          <div className="flex items-start gap-4 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+            <div className="p-3 bg-green-500 rounded-lg flex-shrink-0">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">📱 Mobile Numbers</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">Complete phone number lifecycle management including provisioning, porting, configuration, and real-time inventory tracking.</p>
+              <a href="/api-reference/intelligent-mobile-numbers" className="text-green-600 dark:text-green-400 text-sm font-medium hover:underline">Explore Numbers →</a>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+            <div className="p-3 bg-orange-500 rounded-lg flex-shrink-0">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">📞 Intelligent Voice</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">Enterprise voice solutions with SIP trunking, advanced call routing, real-time streaming, and comprehensive call analytics.</p>
+              <a href="/api-reference/intelligent-voice" className="text-orange-600 dark:text-orange-400 text-sm font-medium hover:underline">Explore Voice →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</Bleed>
+
+## ⚡ Quick Start in 60 Seconds
+
+Get up and running with Telegent mPaaS in just a few simple steps:
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 mb-8">
+  <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
+      <h3 className="font-semibold text-slate-900 dark:text-slate-100">Authenticate</h3>
+    </div>
+    <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">Get your JWT access token using your account credentials.</p>
+    <div className="text-xs bg-slate-100 dark:bg-slate-800 rounded p-2 overflow-x-auto">
+      <code>POST /v1.0/oauth2/tokens</code>
+    </div>
+  </div>
+
+  <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+      <h3 className="font-semibold text-slate-900 dark:text-slate-100">Provision</h3>
+    </div>
+    <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">Search and provision phone numbers for your application.</p>
+    <div className="text-xs bg-slate-100 dark:bg-slate-800 rounded p-2 overflow-x-auto">
+      <code>POST /v1.0/numbers/provision</code>
+    </div>
+  </div>
+
+  <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-lg bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
+      <h3 className="font-semibold text-slate-900 dark:text-slate-100">Communicate</h3>
+    </div>
+    <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">Start sending messages and making calls immediately.</p>
+    <div className="text-xs bg-slate-100 dark:bg-slate-800 rounded p-2 overflow-x-auto">
+      <code>POST /v1.0/message/outbound</code>
+    </div>
+  </div>
+</div>
+
+## 💻 Code Example
+
+Here's a complete example showing how to authenticate and send your first message:
+
+```javascript
+// 1. Authenticate and get token
+const authResponse = await fetch('https://api.telegent.com/v1.0/oauth2/tokens', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    AccountKey: 'DID-your-account-key',
+    AccountSecret: 'your-account-secret',
+    ApiEndpoint: 'https://api.telegent.com/v1.0/message/outbound'
+  })
+});
+
+const { token } = await authResponse.json();
+
+// 2. Send a message
+const messageResponse = await fetch('https://api.telegent.com/v1.0/message/outbound', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    To: [{ Number: '+1234567890' }],
+    From: '+1987654321',
+    Body: 'Hello from Telegent mPaaS!',
+    Owner: '+1987654321'
+  })
+});
+
+const result = await messageResponse.json();
+console.log('Message sent:', result.MessageId);
+```
+
+## 🌍 Real-World Use Cases
+
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+  <div>
+    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+      <span>🏥</span> Healthcare Communication
+    </h3>
+    <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+      <li>• **Patient Reminders**: HIPAA-compliant appointment notifications</li>
+      <li>• **Emergency Alerts**: Critical health status updates</li>
+      <li>• **Telehealth**: Voice and messaging for remote consultations</li>
+      <li>• **Prescription Alerts**: Automated medication reminders</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+      <span>🏭</span> IoT & Industrial
+    </h3>
+    <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+      <li>• **Device Monitoring**: Real-time sensor data transmission</li>
+      <li>• **Alert Systems**: Critical threshold breach notifications</li>
+      <li>• **Fleet Management**: Vehicle tracking and communication</li>
+      <li>• **Smart Cities**: Infrastructure monitoring and management</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+      <span>🏢</span> Enterprise Solutions
+    </h3>
+    <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+      <li>• **Customer Support**: Multi-channel contact center integration</li>
+      <li>• **Marketing Campaigns**: A2P messaging for customer engagement</li>
+      <li>• **Authentication**: Two-factor authentication via SMS/Voice</li>
+      <li>• **Business Continuity**: Backup communication channels</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+      <span>📱</span> MVNO Services
+    </h3>
+    <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+      <li>• **White-label Platform**: Complete MVNO solution</li>
+      <li>• **Number Management**: Provisioning and porting services</li>
+      <li>• **Billing Integration**: Usage tracking and billing APIs</li>
+      <li>• **Customer Portal**: Self-service management interfaces</li>
+    </ul>
+  </div>
+</div>
+
+## 🎯 Next Steps
+
+<div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/20 border border-blue-200 dark:border-blue-700 rounded-lg">
+  <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4">🚀 Ready to Start Building?</h3>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <h4 className="font-medium text-blue-800 dark:text-blue-200 mb-2">📚 Essential Reading</h4>
+      <ul className="space-y-1 text-sm text-blue-700 dark:text-blue-300">
+        <li>• [Authentication Guide](/api-reference/authentication)</li>
+        <li>• [Number Management](/api-reference/intelligent-mobile-numbers)</li>
+        <li>• [Messaging APIs](/api-reference/intelligent-messaging)</li>
+        <li>• [Voice Integration](/api-reference/intelligent-voice)</li>
+      </ul>
+    </div>
+    <div>
+      <h4 className="font-medium text-blue-800 dark:text-blue-200 mb-2">🛠️ Developer Resources</h4>
+      <ul className="space-y-1 text-sm text-blue-700 dark:text-blue-300">
+        <li>• [GitHub Repository](https://github.com/telegent/mpaas-documentation)</li>
+        <li>• [Postman Collections](https://github.com/telegent/postman-collections)</li>
+        <li>• [SDK Downloads](https://developers.telegent.com/sdks)</li>
+        <li>• [Community Forum](https://community.telegent.com)</li>
+      </ul>
+    </div>
+  </div>
+  <div className="mt-6 flex flex-col sm:flex-row gap-3">
+    <a href="/api-reference/authentication" className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors">
+      Get Started with Authentication
+      <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </a>
+    <a href="/api-reference" className="inline-flex items-center px-4 py-2 border border-blue-300 dark:border-blue-600 hover:border-blue-400 dark:hover:border-blue-500 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-lg transition-colors">
+      Browse Full API Reference
+    </a>
+  </div>
+</div>

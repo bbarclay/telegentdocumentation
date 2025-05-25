@@ -1,0 +1,185 @@
+---
+title: Call Recording
+---
+
+## Call Recording
+
+These endpoints allow you to control call recording for an ongoing voice call.
+
+### Start Recording
+
+This endpoint starts recording the audio of an ongoing call.
+
+**Endpoint:** `/voice/calls/{CallId}/record/start`
+
+**Method:** `POST`
+
+### Path Parameters
+
+| Parameter | Type   | Description                         | Required |
+|-----------|--------|-------------------------------------|----------|
+| `CallId`  | string | The unique identifier of the call to record. | Yes      |
+
+### Request Body
+
+| Parameter       | Type   | Description                                              | Required |
+|-----------------|--------|----------------------------------------------------------|----------|
+| `CallbackUrl`   | string | URL to receive recording status updates (e.g., recording finished). | No       |
+| `ClientState`   | string | Custom data to be included in callback events.           | No       |
+
+```json
+{
+  "CallbackUrl": "https://your-app.com/recording-callback",
+  "ClientState": "call_123_sales"
+}
+```
+
+### Response Body (200 OK)
+
+A successful request will typically return a `200 OK` response confirming that recording has started.
+
+```json
+{
+  "Message": "Recording started successfully",
+  "CallId": "call_12345abcde"
+}
+```
+
+### Stop Recording
+
+This endpoint stops recording the audio of an ongoing call.
+
+**Endpoint:** `/voice/calls/{CallId}/record/stop`
+
+**Method:** `POST`
+
+### Path Parameters
+
+| Parameter | Type   | Description                         | Required |
+|-----------|--------|-------------------------------------|----------|
+| `CallId`  | string | The unique identifier of the call to stop recording. | Yes      |
+
+### Request Body
+
+This endpoint typically does not require a request body.
+
+### Response Body (200 OK)
+
+A successful request will typically return a `200 OK` response confirming that recording has stopped.
+
+```json
+{
+  "Message": "Recording stopped successfully",
+  "CallId": "call_12345abcde"
+}
+```
+
+### Callback Event (POST to CallbackUrl)
+
+When a recording is finished (e.g., call ends, recording stopped), Telegent will send a `POST` request to the configured `CallbackUrl` with recording details:
+
+| Parameter      | Type   | Description                                  |
+|----------------|--------|----------------------------------------------|
+| `CallId`       | string | Unique identifier for the call.              |
+| `RecordingId`  | string | Unique identifier for the recording.         |
+| `RecordingUrl` | string | URL to access the recorded audio file.       |
+| `Duration`     | integer| Duration of the recording in seconds.        |
+| `StartTime`    | string | Timestamp when the recording started.        |
+| `EndTime`      | string | Timestamp when the recording ended.          |
+| `ClientState`  | string | Custom data provided when recording started. | No       |
+
+```json
+{
+  "CallId": "call_12345abcde",
+  "RecordingId": "rec_abc123def456",
+  "RecordingUrl": "https://recordings.telegent.com/rec_abc123def456.mp3",
+  "Duration": 60,
+  "StartTime": "2023-10-27T10:00:10Z",
+  "EndTime": "2023-10-27T10:01:10Z",
+  "ClientState": "call_123_sales"
+}
+```
+
+### Python Example (Start Recording)
+
+```python
+import requests
+
+call_id = "call_12345abcde"
+url = f"https://api.telegent.com/voice/calls/{call_id}/record/start"
+
+headers = {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+    "Content-Type": "application/json"
+}
+
+payload = {
+    "CallbackUrl": "https://your-app.com/recording-callback",
+    "ClientState": "call_123_sales"
+}
+
+try:
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status() # Raise an exception for bad status codes
+
+    record_status = response.json()
+    print("Start Recording Status:")
+    print(f"Call Id: {record_status.get('CallId')}")
+    print(f"Message: {record_status.get('Message')}")
+
+except requests.exceptions.RequestException as e:
+    print(f"Error starting recording: {e}")
+    if response is not None:
+        print(f"Response Body: {response.text}")
+```
+
+### Python Example (Stop Recording)
+
+```python
+import requests
+
+call_id = "call_12345abcde"
+url = f"https://api.telegent.com/voice/calls/{call_id}/record/stop"
+
+headers = {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+}
+
+try:
+    response = requests.post(url, headers=headers)
+    response.raise_for_status() # Raise an exception for bad status codes
+
+    stop_status = response.json()
+    print("Stop Recording Status:")
+    print(f"Call Id: {stop_status.get('CallId')}")
+    print(f"Message: {stop_status.get('Message')}")
+
+except requests.exceptions.RequestException as e:
+    print(f"Error stopping recording: {e}")
+    if response is not None:
+        print(f"Response Body: {response.text}")
+```
+
+### Call Recording Flow
+
+```mermaid
+sequenceDiagram
+    participant Y as Your Application
+    participant T as Telegent Platform
+
+    Y->>T: POST /voice/calls/{CallId}/record/start (Request Start Recording)
+    activate T
+    T-->>Y: HTTP 200 OK (Confirmation)
+    deactivate T
+    T->>T: Start Recording
+    ...
+    Y->>T: POST /voice/calls/{CallId}/record/stop (Request Stop Recording)
+    activate T
+    T-->>Y: HTTP 200 OK (Confirmation)
+    deactivate T
+    T->>T: Stop Recording
+    T->>Y: POST Recording Details Payload (to CallbackUrl)
+    activate Y
+    Y-->>T: HTTP 200 OK (Acknowledge Callback)
+    deactivate Y
+``` 

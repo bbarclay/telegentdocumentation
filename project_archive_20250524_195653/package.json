@@ -1,0 +1,65 @@
+{
+  "name": "@telegent/mpaas-documentation",
+  "version": "1.0.0",
+  "description": "Comprehensive documentation for Telegent mPaaS Core APIs",
+  "private": true,
+  "keywords": [
+    "telegent",
+    "mpaas",
+    "telecommunications",
+    "api",
+    "documentation",
+    "messaging",
+    "voice",
+    "mobile-numbers",
+    "sms",
+    "voice-routing",
+    "iot",
+    "mvno",
+    "nextra",
+    "rest-api"
+  ],
+  "homepage": "https://telegent.github.io/mpaas-documentation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/telegent/mpaas-documentation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/telegent/mpaas-documentation/issues"
+  },
+  "author": "Telegent Corporation <developer-support@telegent.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy": "gh-pages -d out"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "cytoscape-cose-bilkent": "^4.1.0",
+    "mermaid": "^11.6.0",
+    "next": "15.1.5",
+    "nextra": "^4.0.5",
+    "nextra-theme-docs": "^4.0.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.5",
+    "gh-pages": "^6.3.0",
+    "pagefind": "^1.3.0",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

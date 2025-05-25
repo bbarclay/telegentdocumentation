@@ -1,0 +1,77 @@
+import { Steps } from 'nextra/components'
+
+# Get Started with Telegent
+
+## Quick Start Guide
+
+Telegent's Mobile Platform as a Service (mPaaS) provides powerful enterprise solutions for mobile communications including voice, messaging, and mobile number management.
+
+## Core Services
+
+### [Intelligent Mobile Numbers](/docs/api-reference/intelligent-mobile-numbers)
+
+Provision, port, manage, and cancel mobile numbers for your communication needs:
+
+- Port existing numbers to the Telegent platform
+- Provision new mobile numbers in desired regions
+- Configure routing preferences
+- Manage number capabilities (SMS, Voice, Data)
+
+### [Intelligent Messaging](/docs/api-reference/intelligent-messaging)
+
+Build powerful messaging solutions with our enterprise-grade SMS, MMS capabilities ad more:
+
+- Send and receive messages
+- Configure messaging routes
+- Manage messaging history
+- Access delivery receipts and analytics
+
+### [Intelligent Voice](/docs/api-reference/intelligent-voice)
+
+Implement robust voice solutions for your business:
+
+- Manage voice calls
+- Configure voice routing
+- Access call history and analytics
+- Implement IVR and call forwarding
+
+<Steps>
+### Create a Telegent Account
+
+Access your Telegent dashboard to create your account and access your API credentials.
+
+### Authenticate with our API
+
+All API requests require authentication. Use either:
+
+```bash
+# Using OAuth2 for token-based authentication
+curl -X POST https://api.telegent.com/v1.0/auth/token \
+  -H "Content-Type: application/json" \
+  -d '{"ClientId": "your-client-id", "ClientSecret": "your-client-secret"}'
+```
+
+### Use our APIs with your token
+
+```bash
+# Example: Get available mobile numbers
+curl https://api.telegent.com/v1.0/mobile-numbers/available \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+### Explore our documentation
+
+Visit our [API Reference](/docs/api-reference) for detailed endpoint information and implementation guides, including our [Message Search API](/docs/api-reference/intelligent-messaging/message-search).
+</Steps>
+
+## Enterprise Solutions
+
+The Telegent platform offers enterprise-ready configurations and solutions for:
+
+- **Enterprise Messaging**: High-volume SMS delivery with enterprise-grade reliability
+- **Voice Communications**: Scalable voice solutions for customer engagement
+- **Mobile Number Management**: Simplified management of your mobile number inventory
+- **Global Reach**: Access to mobile networks worldwide with local presence
+
+For personalized assistance, contact our support team.
