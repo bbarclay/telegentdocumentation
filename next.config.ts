@@ -8,6 +8,7 @@ const withNextra = nextra({
   latex: true,
   defaultShowCopyCode: true,
   contentDirBasePath: "/docs",
+  staticImage: true,
 });
 
 const nextConfig: NextConfig = withNextra({

@@ -1,12 +1,8 @@
-const meta = {
-  index: {
-    type: "page",
-    title: "Home",
+const metaConfig = {
+  "index": {
+    "title": "Home"
   },
-  docs: {
-    type: "page",
-    title: "Documentation",
-  },
+  "docs": "Documentation"
 };
 
-export default meta;
+export default metaConfig;
