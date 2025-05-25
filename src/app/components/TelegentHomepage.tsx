@@ -119,12 +119,11 @@ export default function TelegentHomepage() {
   );
 
   return (
-    <>
+    <div 
+      ref={containerRef}
+      className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"
+    >
       <style dangerouslySetInnerHTML={{ __html: customStyles }} />
-      <div 
-        ref={containerRef}
-        className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"
-      >
       <BackgroundGrid />
       <GlowOrb x={mousePosition.x} y={mousePosition.y} />
       
@@ -330,6 +329,5 @@ export default function TelegentHomepage() {
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none" />
     </div>
-    </>
   );
 } 
