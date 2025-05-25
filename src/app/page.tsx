@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import TelegentHomepage from './components/TelegentHomepage';
+import { HomePage } from "@/components/homepage";
 
 export const metadata: Metadata = {
   title: "Telegent Documentation",
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <TelegentHomepage />;
+  return <HomePage showFeatureCards={false} />;
 }
